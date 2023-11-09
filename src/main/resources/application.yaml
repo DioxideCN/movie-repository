@@ -1,2 +1,31 @@
 server:
   port: 8080
+
+spring:
+  main:
+    allow-circular-references: true # 允许循环依赖
+  jackson: # jackson格式源
+    date-format: yyyy-mm-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  datasource: # MySQL(HikariCP)数据源
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.64.130:3306/digital_carbon?useUnicode=true&useSSL=true&characterEncoding=utf8
+    username: dioxide_cn
+    password: _q1050177109q_
+  data:
+    redis: # Redis数据源
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+      username: dioxide_cn
+      password: _q1050177109q_
+      timeout: 10s
+      lettuce:
+        pool:
+          min-idle: 0
+          max-idle: 8
+          max-active: 8
+          max-wait: -1ms
