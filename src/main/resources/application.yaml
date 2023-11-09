@@ -24,3 +24,7 @@ spring:
           max-idle: 8
           max-active: 8
           max-wait: -1ms
+
+mybatis-flex:
+  configuration:
+    map-underscore-to-camel-case: false

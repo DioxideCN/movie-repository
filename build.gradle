@@ -22,16 +22,28 @@ repositories {
 }
 
 dependencies {
+    /* Reactive Redis */
     implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+    /* WebFlux */
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+    /* Mybatis Flex */
+    implementation 'com.mybatis-flex:mybatis-flex-spring-boot-starter:1.7.3'
+    /* HikariCP */
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+
+    /* Lombok */
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    /* MySQL Connector */
     runtimeOnly 'com.mysql:mysql-connector-j'
+
+    /* Lombok */
     annotationProcessor 'org.projectlombok:lombok'
+    /* Mybatis Flex */
+    annotationProcessor 'com.mybatis-flex:mybatis-flex-processor:1.7.3'
+
+    /* Test Unit */
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
-    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2'
 }
 
 tasks.named('test') {
