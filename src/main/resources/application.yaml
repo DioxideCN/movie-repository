@@ -1,2 +1,26 @@
 server:
   port: 8080
+
+spring:
+  profiles: # 多配置源
+    active: secret
+  main:
+    allow-circular-references: true # 允许循环依赖
+  jackson: # jackson格式源
+    date-format: yyyy-mm-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  datasource: # MySQL(HikariCP)数据源
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis: # Redis数据源
+      database: 0
+      timeout: 10s
+      lettuce:
+        pool:
+          min-idle: 0
+          max-idle: 8
+          max-active: 8
+          max-wait: -1ms
