@@ -17,7 +17,7 @@ out/
 !**/src/test/**/out/
 
 ### Secret Source ###
-/src/main/resources/application-secret.yaml
+/src/**/resources/application-secret.yaml
 
 ### Eclipse ###
 .apt_generated
