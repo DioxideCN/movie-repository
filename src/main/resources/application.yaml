@@ -28,3 +28,5 @@ spring:
 mybatis-flex:
   configuration:
     map-underscore-to-camel-case: false
+  mapper-locations:
+    - classpath*:/mapper/*.xml

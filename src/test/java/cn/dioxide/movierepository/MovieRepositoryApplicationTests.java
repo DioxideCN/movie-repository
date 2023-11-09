@@ -1,20 +1,23 @@
 package cn.dioxide.movierepository;
 
-import cn.dioxide.movierepository.entity.Movie;
-import cn.dioxide.movierepository.mapper.MovieMapper;
+import cn.dioxide.movierepository.entity.UserHistory;
+import cn.dioxide.movierepository.mapper.QueryMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class MovieRepositoryApplicationTests {
 
     @Autowired
-    private MovieMapper mapper;
+    private QueryMapper queryMapper;
 
     @Test
     void contextLoads() {
-        System.out.println(mapper.selectOneById(1));
+        List<UserHistory> userHistories = queryMapper.queryUserHistory(65);
+        userHistories.forEach(System.out::println);
     }
 
 }
