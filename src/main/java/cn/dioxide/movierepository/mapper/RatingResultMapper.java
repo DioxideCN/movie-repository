@@ -1,17 +1,14 @@
 package cn.dioxide.movierepository.mapper;
 
-import cn.dioxide.movierepository.entity.Movie;
+import cn.dioxide.movierepository.entity.RatingResult;
 import com.mybatisflex.core.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author Dioxide.CN
- * @date 2023/11/9
+ * @date 2023/11/28
  * @since 1.0
  */
 @Mapper
-public interface MovieMapper extends BaseMapper<Movie> {
-
-
-
+public interface RatingResultMapper extends BaseMapper<RatingResult> {
 }

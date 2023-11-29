@@ -28,8 +28,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     /* Mybatis Flex */
     implementation 'com.mybatis-flex:mybatis-flex-spring-boot-starter:1.7.3'
-    /* HikariCP */
-    implementation 'com.zaxxer:HikariCP:5.1.0'
+    /* Sharding Sphere JDBC */
+    implementation 'org.apache.shardingsphere:shardingsphere-jdbc-core:5.3.0'
 
     /* Lombok */
     compileOnly 'org.projectlombok:lombok'

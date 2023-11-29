@@ -1,0 +1,30 @@
+dataSources:
+  ds:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://rm-bp10wia8prtby436pno.mysql.rds.aliyuncs.com:3306/movie?useUnicode=true&useSSL=true&characterEncoding=utf8
+    username: dioxide_cn
+    password: _q1050177109q_
+
+rules:
+- !SHARDING
+  tables:
+    ratings:
+      actualDataNodes: ds.ratings_$->{1..9} # 分片范围
+      tableStrategy:
+        standard:
+          shardingColumn: userId # 分片字段
+          shardingAlgorithmName: rate_user_rule # 分片规则
+
+  shardingAlgorithms:
+    rate_user_rule:
+      type: INLINE
+      props:
+        algorithm-expression: ratings_$->{userId % 10}
+    genome_scores_rule:
+      type: INLINE
+      props:
+        algorithm-expression: genome-scores_$->{movieId % 10}
+
+#props:
+#  sql-show: true

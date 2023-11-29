@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dioxide.movierepository.mapper.UserHistoryMapper">
+
+    <resultMap id="ratingResultMap" type="cn.dioxide.movierepository.entity.UserHistory">
+        <id column="movieId" property="movieId" />
+        <result column="title" property="title" />
+        <result column="rating" property="rating" />
+        <result column="timestamp" property="timestamp" />
+        <collection column="movieId"
+                    property="relevance"
+                    ofType="cn.dioxide.movierepository.entity.TagResult"
+                    select="tagSearch"/>
+    </resultMap>
+
+    <select id="userIdSearchPage" resultMap="ratingResultMap">
+        SELECT
+            movies.movieId AS movieId,
+            movies.title AS title,
+            ratings.rating AS rating,
+            ratings.`timestamp` AS `timestamp`
+        FROM
+            ratings AS ratings
+                INNER JOIN
+            movies ON ratings.movieId = movies.movieId
+        WHERE
+            ratings.userId = ${userId}
+        ORDER BY
+            `timestamp` DESC
+    </select>
+
+    <select id="tagSearch" resultType="cn.dioxide.movierepository.entity.TagResult">
+        SELECT
+            `genome-scores`.relevance as relevance,
+            `genome-tags`.tag AS tagName
+        FROM
+            `genome-scores_${movieId % 10}` AS `genome-scores`,
+            `genome-tags`
+        WHERE
+            `genome-scores`.tagId = `genome-tags`.tagId
+          AND `genome-scores`.movieId = #{movieId}
+        ORDER BY
+            `genome-scores`.relevance DESC
+            LIMIT 3
+    </select>
+
+</mapper>

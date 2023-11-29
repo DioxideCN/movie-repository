@@ -3,11 +3,13 @@ package cn.dioxide.movierepository.entity;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
  * @author Dioxide.CN
- * @date 2023/11/9
+ * @date 2023/11/28
  * @since 1.0
  */
 @Data
@@ -23,6 +25,6 @@ public class UserHistory {
 
     private String tag;           // 电影前三个标签 映射自genome-tags与tags联表
 
-    private BigDecimal relevance; // 关联度 映射自genome-scores
+    private List<TagResult> relevance = new ArrayList<>(); // 关联度 映射自genome-scores
 
 }

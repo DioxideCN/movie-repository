@@ -6,26 +6,24 @@ import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
-import java.math.BigDecimal;
-
-/**
- * @author Dioxide.CN
- * @date 2023/11/9
- * @since 1.0
- */
 @Data
-@Table("genome-scores")
-public class GenomeScore {
+@Table("ratings")
+public class Rating {
 
     @Id(keyType = KeyType.Auto)
+    @Column(value = "id")
     private Integer id;
+
+    @Column("userId")
+    private Integer userId;
 
     @Column("movieId")
     private Integer movieId;
 
-    @Column("tagId")
-    private Integer tagId;
+    @Column("rating")
+    private Double rating;
 
-    BigDecimal relevance;
+    @Column("timestamp")
+    private Long timestamp;
 
 }
