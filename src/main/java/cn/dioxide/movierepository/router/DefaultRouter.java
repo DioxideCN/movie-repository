@@ -1,9 +1,7 @@
 package cn.dioxide.movierepository.router;
 
-import cn.dioxide.movierepository.entity.RatingResult;
 import cn.dioxide.movierepository.infra.PageResult;
 import cn.dioxide.movierepository.service.impl.IRatingDefinitionService;
-import com.mybatisflex.core.paginate.Page;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,8 +26,9 @@ public class DefaultRouter {
 
     @RequestMapping("/rating")
     public Mono<PageResult<?>> ratingResultSearch(@RequestParam Integer id,
-                                                  @RequestParam(required = false,defaultValue = "1") Integer page) {
-        return service.ratingResultSearch(id, page);
+                                                  @RequestParam(required = false,defaultValue = "1") Integer page,
+                                                  @RequestParam(required = false,defaultValue = "10") Integer size) {
+        return service.ratingResultSearch(id, page, size);
     }
 
 }

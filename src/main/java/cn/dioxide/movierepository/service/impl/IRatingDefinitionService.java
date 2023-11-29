@@ -14,5 +14,6 @@ import reactor.core.publisher.Mono;
 @Service
 public interface IRatingDefinitionService {
     Mono<PageResult<?>> ratingResultSearch(Integer id,
-                                           Integer page);
+                                           Integer page,
+                                           Integer size);
 }

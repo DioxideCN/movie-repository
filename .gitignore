@@ -18,6 +18,7 @@ out/
 
 ### Secret Source ###
 /src/**/resources/application-secret.yaml
+/src/**/resources/sharding.yaml
 
 ### Eclipse ###
 .apt_generated

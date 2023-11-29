@@ -1,28 +1,23 @@
 package cn.dioxide.movierepository;
 
-import cn.dioxide.movierepository.entity.RatingResult;
 import cn.dioxide.movierepository.entity.TagResult;
 import cn.dioxide.movierepository.entity.UserHistory;
-import cn.dioxide.movierepository.mapper.RatingResultMapper;
 import cn.dioxide.movierepository.mapper.TagResultMapper;
 import cn.dioxide.movierepository.mapper.UserHistoryMapper;
 import com.mybatisflex.core.paginate.Page;
 import com.mybatisflex.core.query.QueryColumn;
 import com.mybatisflex.core.query.QueryTable;
 import com.mybatisflex.core.query.QueryWrapper;
-import com.mybatisflex.core.query.SqlOperators;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @SpringBootTest
 class MovieRepositoryApplicationTests {
-
-    @Autowired
-    private RatingResultMapper ratingResultMapper;
 
     @Autowired
     private UserHistoryMapper userHistoryMapper;

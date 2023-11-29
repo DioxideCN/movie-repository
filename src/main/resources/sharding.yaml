@@ -25,6 +25,3 @@ rules:
       type: INLINE
       props:
         algorithm-expression: genome-scores_$->{movieId % 10}
-
-#props:
-#  sql-show: true
